@@ -6,7 +6,7 @@ A small bot for [Discord](https://discordapp.com/), themed after the Character K
 
 ### Prerequisites
 
-To run the bot you need to create a new app on the [Discord developer page](https://discordapp.com/developers/applications/me). Create the app, give it a name and an avatar, on the next page "Create a Bot User" and copy the token. You will need to add this token in the `config.json` later.
+To run the bot you need to create a new app on the [Discord developer page](https://discordapp.com/developers/applications/me). Create the app, give it a name and an avatar, on the next page "Create a Bot User" and copy the token. You will need to add this token in the `config.json` file later.
 
 To run the -osu command you also need an [an osu!-API key](https://github.com/ppy/osu-api/wiki) which needs to be added in the `config.json` file.
 
@@ -42,7 +42,7 @@ To start the bot, just run desubot.py.
 * **-cgm** - Gets a random picture from the [CuteGirls API](http://api.cutegirls.moe/). If you append an anime name, it will try to get a picture from that anime
     - *e.g. "-cgm Kiniro Mosaic" will return a cute picture from the anime Kiniro Mosaic together with a source*
     - *aliases: -cutegirl, -cutegirls, -moe*
-* **-fortune** - Will give you your fortune in the style of a [omikuji](https://en.wikipedia.org/wiki/O-mikuji)
+* **-fortune** - Will give you your fortune in the style of an [omikuji](https://en.wikipedia.org/wiki/O-mikuji)
     - *alias: -omikuji*
 
 ## Authors
