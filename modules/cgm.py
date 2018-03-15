@@ -14,7 +14,10 @@ class cgm():
     async def cgm(self,* , source : str = None):
         """Get a random Picture from cutegirls.moe using the CuteGirls API."""
         try:
-            temp = requests.get('http://api.cutegirls.moe/json?source=' + urllib.parse.quote_plus(source))
+            if source == None:
+                temp = requests.get('http://api.cutegirls.moe/json')
+            else:
+                temp = requests.get('http://api.cutegirls.moe/json?source=' + urllib.parse.quote_plus(source))
             imagedata = temp.json()
             embed = discord.Embed(colour=discord.Colour(0x663399), description="[Source]("+ imagedata['data']['link'] +")")
             embed.set_author(name=imagedata['data']['title'])
