@@ -47,7 +47,18 @@ async def on_ready():
 @bot.command()
 async def help():
     """Displays the help"""
-    await bot.say("ToDo")
+    helpmessage = ("**-help** - Displays this help\n")
+    if "modules.comfy" in startup_extensions:
+        helpmessage += ("**-howcomf** - Display tomorrows comfiness for a User\n")
+    if "modules.rng" in startup_extensions:
+        helpmessage += ("**-roll** - Roll dice in NdN format\n")
+        helpmessage += ("**-choose** - Chooses between multiple strings\n")
+    if "modules.cgm" in startup_extensions:
+        helpmessage += ("**-cgm** - Posts a random picture via the cuteGirls API\n")
+    if "modules.fortune" in startup_extensions:
+        helpmessage += ("**-fortune** - Will give you your fortune in the style of an omikuji\n")
+    helpmessage += ("Command List with examples and command aliases at <https://github.com/SebastianGi/DesuBot#commands>")
+    await bot.say(helpmessage)
 
 
 if __name__ == "__main__":
