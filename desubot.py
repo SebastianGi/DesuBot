@@ -5,15 +5,16 @@ from discord.ext import commands
 
 # modules loaded on startup
 startup_extensions = ["modules.rng", "modules.comfy", "modules.fortune", "modules.cgm"]
-description = 'Well, what do we have here, desu~'
-bot = commands.Bot(command_prefix='-', description=description)
-client = discord.Client()
-bot.remove_command('help')
+
 try:
     with open('userconfig.json') as json_data:
         userconfig = json.load(json_data)
 except Exception:
     print("OOPSIE WOOPSIE!! uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
+description = 'Well, what do we have here, desu~'
+bot = commands.Bot(command_prefix=userconfig['prefix'], description=description)
+client = discord.Client()
+bot.remove_command('help')
 
 
 @bot.event

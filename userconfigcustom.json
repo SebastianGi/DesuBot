@@ -3,5 +3,6 @@
         "osuapi": "INSERT API KEY HERE"
     },
     "vips": ["USERIDS OF VIP HERE"],
-    "token": "BOT TOKEN HERE"
+    "token": "BOT TOKEN HERE",
+    "prefix": ["-"]
 }
