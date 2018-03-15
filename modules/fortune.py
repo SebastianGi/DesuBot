@@ -12,11 +12,11 @@ class fortune():
     @commands.command(pass_context=True, aliases=['omikuji'])
     async def fortune(self, ctx):
         """Visit a shrine and recieve your fortune."""
-        #Check if in DM
+        # Check if in DM
         if ctx.message.channel.is_private:
             await self.bot.say("Unfortunately i cannot execute this command in Private Messages")
         else:
-            #Variables
+            # Variables
             try:
                 with open('config.json') as json_data:
                     userconfig = json.load(json_data)
@@ -39,7 +39,7 @@ class fortune():
             generalfortune = None
             grid = "```+----+----+----+----+----+\n| A1 | A2 | A3 | A4 | A5 |\n+------------------------+\n| B1 | B2 | B3 | B4 | B5 |\n+------------------------+\n| C1 | C2 | C3 | C4 | C5 |\n+----+----+----+----+----+```"
             
-            #Set embed for shrine choice
+            # Set embed for shrine choice
             embed = discord.Embed(colour=discord.Colour(0x663399))
             embed.set_author(name="Fortune for " + userboy.name, icon_url=userboy.avatar_url)
             if vip:
@@ -50,7 +50,7 @@ class fortune():
                 shrinelistformatgen = shrinelistformatgen + str(shrines.index(i) + 1) + ". " + i + "\n"
             embed.add_field(name="Shrines:", value=shrinelistformatgen)
             
-            #Send shrine choice and handle reply
+            # Send shrine choice and handle reply
             fortunemessage = await self.bot.say(embed=embed)
             for i in shrinechoicelist:
                 await self.bot.add_reaction(fortunemessage, i)
@@ -63,7 +63,7 @@ class fortune():
             seedboy = userboy.id + str(shrinechoice)
             await self.bot.clear_reactions(fortunemessage)
             
-            #Set new embed
+            # Set new embed
             if vip:
                 embed.description = "We arrived at " + shrines[shrinechoice] + ", " + userboy.name + "! des~"
             else:
@@ -72,9 +72,9 @@ class fortune():
             embed.add_field(name="Please choose the drawer you'd like to take your fortune from.", value= grid)
             embed.set_footer(text="First pick a row, then pick a column")
             
-            #Send drawer choice
+            # Send drawer choice
             await self.bot.edit_message(fortunemessage, embed=embed)
-            #Handle reply for axis Y
+            # Handle reply for axis Y
             for i in drawerchoiceylist:
                 await self.bot.add_reaction(fortunemessage, i)
             tempchoice = await self.bot.wait_for_reaction(drawerchoiceylist, message=fortunemessage, user=userboy, timeout=30)
@@ -86,7 +86,7 @@ class fortune():
             seedboy = seedboy + str(drawerchoicey)
             await self.bot.clear_reactions(fortunemessage)
             
-            #Handle reply for axis X
+            # Handle reply for axis X
             for i in drawerchoicexlist:
                 await self.bot.add_reaction(fortunemessage, i)
             tempchoice = await self.bot.wait_for_reaction(drawerchoicexlist, message=fortunemessage, user=userboy, timeout=30)
@@ -98,7 +98,7 @@ class fortune():
             seedboy = seedboy + str(drawerchoicex)
             await self.bot.clear_reactions(fortunemessage)
             
-            #Generate fortune
+            # Generate fortune
             random.seed(seedboy + "general" + str(datetime.datetime))
             generalfortune = random.randint(0, 11)
             embed.description = "You have picked drawer " + drawerchoiceylistraw[drawerchoicey] + str(drawerchoicex + 1) + " from " + shrines[shrinechoice]
@@ -112,12 +112,12 @@ class fortune():
                 embed.add_field(name=i[0] + " *" + i[1] + "*", value=fortunetable[tempfortune][0] + " *" + fortunetable[tempfortune][1] + "*\n ", inline=False)
             embed.set_footer(text="React 🌳 to leave the fortune at the shrine or react 📧 to get it sent to your DMs for you to keep")
             
-            #Post fortune and give choice to keep or leave
+            # Post fortune and give choice to keep or leave
             await self.bot.edit_message(fortunemessage, embed=embed)
             for i in endchoice:
                 await self.bot.add_reaction(fortunemessage, i)
             
-            #DM or remove fortune
+            # DM or remove fortune
             tempchoice = await self.bot.wait_for_reaction(endchoice, message=fortunemessage, user=userboy, timeout=45)
             await self.bot.clear_reactions(fortunemessage)
             if tempchoice.reaction.emoji == "🌳":
