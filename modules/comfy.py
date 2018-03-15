@@ -10,7 +10,7 @@ class comfy():
         self.bot = bot
 
     @commands.command(pass_context=True, aliases=['comf', 'comfy'])
-    async def howcomf(self, ctx, userboy: discord.User = None):
+    async def howcomf(self, ctx, userboy: discord.User=None):
         """Shows your comfyness for the following day."""
         if userboy is None:
             userboy = ctx.message.author
