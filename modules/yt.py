@@ -6,8 +6,8 @@ class YT():
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def roll(self):
+    @commands.command(description='ToDo.')
+    async def yt(self):
         await self.bot.say("ToDo")
 
 
