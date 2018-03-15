@@ -10,7 +10,7 @@ A small bot for [Discord](https://discordapp.com/), themed after the Character K
 * urllib3
 * [An osu!-API key](https://github.com/ppy/osu-api/wiki)
 
-## Installation
+### Installation
 
 Rename `userconfigcustom.json` to `userconfig.json` and add your Data before the first use.
 

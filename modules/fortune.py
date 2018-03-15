@@ -4,6 +4,7 @@ import datetime
 import json
 from discord.ext import commands
 
+
 class fortune():
     def __init__(self, bot):
         self.bot = bot
@@ -37,6 +38,7 @@ class fortune():
             drawerchoicey = None
             generalfortune = None
             grid = "```+----+----+----+----+----+\n| A1 | A2 | A3 | A4 | A5 |\n+------------------------+\n| B1 | B2 | B3 | B4 | B5 |\n+------------------------+\n| C1 | C2 | C3 | C4 | C5 |\n+----+----+----+----+----+```"
+            
             #Set embed for shrine choice
             embed = discord.Embed(colour=discord.Colour(0x663399))
             embed.set_author(name="Fortune for " + userboy.name, icon_url=userboy.avatar_url)
@@ -47,6 +49,7 @@ class fortune():
             for i in shrines:
                 shrinelistformatgen = shrinelistformatgen + str(shrines.index(i) + 1) + ". " + i + "\n"
             embed.add_field(name="Shrines:", value=shrinelistformatgen)
+            
             #Send shrine choice and handle reply
             fortunemessage = await self.bot.say(embed=embed)
             for i in shrinechoicelist:
@@ -59,6 +62,7 @@ class fortune():
                     shrinechoice = index
             seedboy = userboy.id + str(shrinechoice)
             await self.bot.clear_reactions(fortunemessage)
+            
             #Set new embed
             if vip:
                 embed.description = "We arrived at " + shrines[shrinechoice] + ", " + userboy.name + "! des~"
@@ -67,9 +71,10 @@ class fortune():
             embed.remove_field(0)
             embed.add_field(name="Please choose the drawer you'd like to take your fortune from.", value= grid)
             embed.set_footer(text="First pick a row, then pick a column")
-            #Send drawer choice and handle replies
+            
+            #Send drawer choice
             await self.bot.edit_message(fortunemessage, embed=embed)
-            # Y
+            #Handle reply for axis Y
             for i in drawerchoiceylist:
                 await self.bot.add_reaction(fortunemessage, i)
             tempchoice = await self.bot.wait_for_reaction(drawerchoiceylist, message=fortunemessage, user=userboy, timeout=30)
@@ -80,7 +85,8 @@ class fortune():
                     drawerchoicey = index
             seedboy = seedboy + str(drawerchoicey)
             await self.bot.clear_reactions(fortunemessage)
-            # X
+            
+            #Handle reply for axis X
             for i in drawerchoicexlist:
                 await self.bot.add_reaction(fortunemessage, i)
             tempchoice = await self.bot.wait_for_reaction(drawerchoicexlist, message=fortunemessage, user=userboy, timeout=30)
@@ -91,6 +97,7 @@ class fortune():
                     drawerchoicex = index
             seedboy = seedboy + str(drawerchoicex)
             await self.bot.clear_reactions(fortunemessage)
+            
             #Generate fortune
             random.seed(seedboy + "general" + str(datetime.datetime))
             generalfortune = random.randint(0, 11)
@@ -104,10 +111,12 @@ class fortune():
                 tempfortune = random.randint(fortunetable[generalfortune][2],fortunetable[generalfortune][3])
                 embed.add_field(name=i[0] + " *" + i[1] + "*", value=fortunetable[tempfortune][0] + " *" + fortunetable[tempfortune][1] + "*\n ", inline=False)
             embed.set_footer(text="React 🌳 to leave the fortune at the shrine or react 📧 to get it sent to your DMs for you to keep")
+            
             #Post fortune and give choice to keep or leave
             await self.bot.edit_message(fortunemessage, embed=embed)
             for i in endchoice:
                 await self.bot.add_reaction(fortunemessage, i)
+            
             #DM or remove fortune
             tempchoice = await self.bot.wait_for_reaction(endchoice, message=fortunemessage, user=userboy, timeout=45)
             await self.bot.clear_reactions(fortunemessage)
@@ -122,6 +131,7 @@ class fortune():
                 embed.set_footer()
                 embed.description = "Fortune has been sent as a direct meesage."
                 await self.bot.edit_message(fortunemessage, embed=embed)
+
 
 def setup(bot):
     bot.add_cog(fortune(bot))

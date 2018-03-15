@@ -5,6 +5,7 @@ import json
 import urllib.parse
 from discord.ext import commands
 
+
 class cgm():
     def __init__(self, bot):
         self.bot = bot
@@ -24,7 +25,6 @@ class cgm():
         except Exception:
             await self.bot.say('Something went wrong!!! \*sad desu\*')
             return
-
         await self.bot.say(embed=embed)
 
 

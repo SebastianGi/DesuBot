@@ -1,6 +1,7 @@
 import random
 from discord.ext import commands
 
+
 class RNG():
     def __init__(self, bot):
         self.bot = bot
@@ -13,7 +14,6 @@ class RNG():
         except Exception:
             await self.bot.say('Format has to be in NdN!')
             return
-
         result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
         await self.bot.say(result)
 

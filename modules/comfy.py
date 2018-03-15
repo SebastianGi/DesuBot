@@ -4,6 +4,7 @@ from datetime import date
 from discord.ext import commands
 from time import sleep
 
+
 class comfy():
     def __init__(self, bot):
         self.bot = bot
@@ -24,9 +25,12 @@ class comfy():
             output_bar = output_bar + '░'
         output_bar = output_bar + ']'
         outputboy = output_bar + ' ' + str(comfyness) + '%'
+
         embed = discord.Embed(colour=discord.Colour(0x663399))
         embed.set_author(name="Comfiness Prediction for " + userboy.name, icon_url=userboy.avatar_url)
         embed.add_field(name="Your predicted comfiness for tomorrow is:", value=outputboy)
         await self.bot.say(embed=embed)
+
+
 def setup(bot):
     bot.add_cog(comfy(bot))
