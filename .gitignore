@@ -49,5 +49,5 @@ pip-delete-this-directory.txt
 *.pot
 .webassets-cache
 .vscode
-userconfig.json
+config.json
 resources

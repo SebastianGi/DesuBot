@@ -12,7 +12,11 @@ A small bot for [Discord](https://discordapp.com/), themed after the Character K
 
 ### Installation
 
-Rename `userconfigcustom.json` to `userconfig.json` and add your Data before the first use.
+Rename `config.default.json` to `config.json` and add your Data before the first use.
+
+## Commands
+
+* Will be listed soon
 
 ## Authors
 

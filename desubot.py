@@ -7,7 +7,7 @@ from discord.ext import commands
 startup_extensions = ["modules.rng", "modules.comfy", "modules.fortune", "modules.cgm"]
 
 try:
-    with open('userconfig.json') as json_data:
+    with open('config.json') as json_data:
         userconfig = json.load(json_data)
 except Exception:
     print("OOPSIE WOOPSIE!! uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
