@@ -3,6 +3,7 @@ import discord
 import datetime
 import json
 from discord.ext import commands
+from desubot import userconfig
 
 
 class fortune():
@@ -17,11 +18,6 @@ class fortune():
             await self.bot.say("Unfortunately i cannot execute this command in Private Messages")
         else:
             # Variables
-            try:
-                with open('config.json') as json_data:
-                    userconfig = json.load(json_data)
-            except Exception:
-                    fortunemessage = await self.bot.say("OOPSIE WOOPSIE!! uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
             userboy = ctx.message.author
             shrines = ["Hakurei Shrine","Yatasai Shrine", "Tainaka Shrine"]
             shrinechoicelist = ['1⃣','2⃣','3⃣']
