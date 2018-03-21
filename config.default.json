@@ -2,6 +2,7 @@
     "keys": {
         "osuapi": "INSERT API KEY HERE"
     },
+    "admins": ["USERIDS OF ADMINS HERE"],
     "vips": ["USERIDS OF VIP HERE"],
     "token": "BOT TOKEN HERE",
     "prefix": ["-"],
