@@ -122,9 +122,9 @@ class fortune():
                 embed.description = "You tied your fortune to a branch of the tree at the shrine, leaving it behind."
                 await self.bot.edit_message(fortunemessage, embed=embed)
             if tempchoice.reaction.emoji == "📧":
+                embed.set_footer()
                 await self.bot.send_message(userboy, embed=embed)
                 embed.clear_fields()
-                embed.set_footer()
                 embed.description = "Fortune has been sent as a direct meesage."
                 await self.bot.edit_message(fortunemessage, embed=embed)
 
