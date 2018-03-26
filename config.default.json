@@ -1,10 +1,10 @@
 {
-    "keys": {
-        "osuapi": "INSERT API KEY HERE"
-    },
     "admins": ["USERIDS OF ADMINS HERE"],
     "vips": ["USERIDS OF VIP HERE"],
     "token": "BOT TOKEN HERE",
     "prefix": ["-"],
-    "startup_extensions": ["modules.rng", "modules.comfy", "modules.fortune", "modules.cgm", "modules.osu"]
+    "startup_extensions": ["modules.rng", "modules.comfy", "modules.fortune", "modules.cgm", "modules.osu", "modules.picoftheday"],
+    "keys": {
+        "osuapi": "INSERT API KEY HERE"
+    }
 }

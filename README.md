@@ -22,10 +22,11 @@ Rename `config.default.json` to `config.json` and add your Data before the first
 
 Values in `config.json`:
 
-* **osuapi** - Your API key form the [osu! API](https://github.com/ppy/osu-api/wiki) to look up users and beatmaps
+* **admins** - UserIDs of Users which are allowed to use Admin commands
 * **vips** - UserIDs of Users which should recieve special replies (this feature is mostly WIP)
 * **token** - Your Discord bot token (**important**)
 * **prefix** - The command prefix, default is "-", e.g. "-help"
+* **osuapi** - Your API key form the [osu! API](https://github.com/ppy/osu-api/wiki) to look up users and beatmaps
 
 To start the bot, just run desubot.py.
 
