@@ -51,3 +51,4 @@ pip-delete-this-directory.txt
 .vscode
 config.json
 resources
+userdb.json
