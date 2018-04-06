@@ -1,5 +1,6 @@
 import discord
 import json
+from tinydb import TinyDB, Query
 from discord.ext import commands
 
 
@@ -10,7 +11,11 @@ try:
 except Exception:
     print("Exception while trying to read config.json!")
 
-#startup_extensions = ["modules.rng", "modules.comfy", "modules.fortune", "modules.cgm", "modules.osu"]
+# Load database
+try:
+    userdb = TinyDB('userdb.json')
+except Exception:
+    print("Exception while trying to create or read database")
 
 description = 'Well, what do we have here, desu~'
 bot = commands.Bot(command_prefix=userconfig['prefix'], description=description)
@@ -54,6 +59,10 @@ async def unload(ctx, extension_name : str):
         await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
 
+@bot.command(pass_context=True)
+async def db(ctx):
+    """DMs all stored data about a specific User."""
+    await bot.say("soon™")
 
 @bot.command()
 async def help():

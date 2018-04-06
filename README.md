@@ -14,6 +14,8 @@ Packages that need to be installed in Python:
 
 * discord.py - *I'm using version v0.16.12*
 * urllib3
+* TinyDB
+* (**optional**) ujson - *will speed up TinyDB if installed*
 
 
 ### Installation
@@ -41,7 +43,7 @@ To start the bot, just run desubot.py.
 * **-choose** - Chooses between multiple given choices
     - *e.g. "-choose pizza pasta" will randomly choose between "pizza" or "pasta"* 
 * **-cgm** - Gets a random picture from the [CuteGirls API](http://api.cutegirls.moe/). If you append an anime name, it will try to get a picture from that anime
-    - *e.g. "-cgm Kiniro Mosaic" will return a cute picture from the anime Kiniro Mosaic together with a source*
+    - *e.g. "-cgm Kiniro Mosaic" will return a cute picture from the anime Kiniro Mosaic together with the source*
     - *aliases: -cutegirl, -cutegirls, -moe*
 * **-fortune** - Will give you your fortune in the style of an [omikuji](https://en.wikipedia.org/wiki/O-mikuji)
     - *alias: -omikuji*
