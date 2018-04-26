@@ -34,3 +34,5 @@ class comfy():
 
 def setup(bot):
     bot.add_cog(comfy(bot))
+
+#fuck You
