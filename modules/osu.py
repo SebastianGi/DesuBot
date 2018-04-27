@@ -35,7 +35,6 @@ class osu():
                 if osutable.count(userquery.discord_uid == userboy.id) == 0:
                     try:
                         temp = osuapirequest('get_user?k=' + userconfig['keys']['osuapi'] + '&u=' + argboyone)
-                        await self.bot.say(temp)
                         osutable.insert({'discord_uid': userboy.id, 'osu_uid': argboyone})
                         await self.bot.say('osu! user **' + temp['username'] + '** has been tied to your Discord user')
                     except IndexError:
@@ -51,9 +50,22 @@ class osu():
                 await self.bot.say('osu! user tied to your discord user has been removed')
             else:
                 await self.bot.say("No osu! user currently tied to your account")
-        # USER
+# _TODO_       # USER
         elif switchboye == "user":
-            await self.bot.say('user: soon™')
+            if argboyone is None:
+                await self.bot.say('You forgot to add your osu! User')
+            else:
+                try:
+                    temp = osuapirequest('get_user?k=' + userconfig['keys']['osuapi'] + '&u=' + argboyone)
+                    embed = discord.Embed(colour=discord.Colour(0xff66aa))
+                    embed.set_author(name="osu! user " + temp['username'])
+                    embed.set_thumbnail(url='https://a.ppy.sh/' + temp['user_id'])
+                    embed.add_field(name="rank", value=temp['pp_rank'], inline=True)
+                    embed.add_field(name="pp", value=temp['pp_raw'], inline=True)
+                    await self.bot.say(embed=embed)
+                except IndexError:
+                    await self.bot.say(argboyone + " doesn't seem to be a valid osu! user")
+            
         # MAPS
         elif switchboye == "maps":
             await self.bot.say('maps: soon™')
