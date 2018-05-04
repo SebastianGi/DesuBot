@@ -50,5 +50,5 @@ pip-delete-this-directory.txt
 .webassets-cache
 .vscode
 config.json
-resources
+dokufuermich
 userdb.json
