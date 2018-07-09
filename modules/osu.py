@@ -60,8 +60,12 @@ class osu():
                     embed = discord.Embed(colour=discord.Colour(0xff66aa))
                     embed.set_author(name="osu! user " + temp['username'])
                     embed.set_thumbnail(url='https://a.ppy.sh/' + temp['user_id'])
-                    embed.add_field(name="rank", value=temp['pp_rank'], inline=True)
+                    embed.add_field(name="rank", value=temp['pp_rank'])
                     embed.add_field(name="pp", value=temp['pp_raw'], inline=True)
+                    embed.add_field(name="accuracy", value=round(float(temp['accuracy']), 2))
+                    embed.add_field(name="playcount", value=temp['playcount'], inline=True)
+                    embed.add_field(name="ranked_score", value=round(float(temp['accuracy']), 2))
+                    embed.add_field(name="TEMP", value=temp['playcount'], inline=True)
                     await self.bot.say(embed=embed)
                 except IndexError:
                     await self.bot.say(argboyone + " doesn't seem to be a valid osu! user")
