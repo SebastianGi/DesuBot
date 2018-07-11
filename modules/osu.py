@@ -52,30 +52,31 @@ class osu():
                 await self.bot.say("No osu! user currently tied to your account")
 # _TODO_       # USER
         elif switchboye == "user":
-            if argboyone is None:
-                await self.bot.say('You forgot to add your osu! User')
-            else:
+            userquery = Query()
+            gotuser = 0  
+            if (argboyone is None and osutable.contains(userquery.discord_uid == userboy.id)) :
+                gotuser = 1
+                temp = osutable.get(userquery.discord_uid == userboy.id)
+                argboyone = temp.get('osu_uid')
+            elif argboyone is not None:
+                gotuser = 1
+            if gotuser == 1:
                 try:
                     temp = osuapirequest('get_user?k=' + userconfig['keys']['osuapi'] + '&u=' + argboyone)
                     embed = discord.Embed(colour=discord.Colour(0xff66aa))
                     embed.set_author(name="osu! user " + temp['username'])
                     embed.set_thumbnail(url='https://a.ppy.sh/' + temp['user_id'])
-                    embed.add_field(name="rank", value=temp['pp_rank'])
-                    embed.add_field(name="pp", value=temp['pp_raw'], inline=True)
-                    embed.add_field(name="accuracy", value=round(float(temp['accuracy']), 2))
-                    embed.add_field(name="playcount", value=temp['playcount'], inline=True)
-                    embed.add_field(name="ranked_score", value=round(float(temp['accuracy']), 2))
-                    embed.add_field(name="TEMP", value=temp['playcount'], inline=True)
+                    embed.add_field(name="Rank", value=temp['pp_rank'])
+                    embed.add_field(name="PP", value=temp['pp_raw'], inline=True)
+                    embed.add_field(name="Accuracy", value=round(float(temp['accuracy']), 2))
+                    embed.add_field(name="Playcount", value=temp['playcount'], inline=True)
+                    embed.add_field(name="Ranked Score", value=temp['ranked_score'])
+                    embed.add_field(name="Level", value=temp['level'], inline=True)
                     await self.bot.say(embed=embed)
                 except IndexError:
                     await self.bot.say(argboyone + " doesn't seem to be a valid osu! user")
-            
-        # MAPS
-        elif switchboye == "maps":
-            await self.bot.say('maps: soon™')
-        # ALERT
-        elif switchboye == "alert":
-            await self.bot.say('alert: soon™')
+            elif gotuser == 0:
+                await self.bot.say('You forgot to add your osu! User')
         # EXCEPTION
         else:
             await self.bot.say('Unknown argument ' + switchboye)
