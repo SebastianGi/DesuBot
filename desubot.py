@@ -81,8 +81,7 @@ async def help():
         helpmessage += ("**-picoftheday** - Shows a special image each day\n")
     if "modules.osu" in userconfig['startup_extensions']:
         helpmessage += ("**-osu set \*osu username\*** - Ties the given osu! username to your discord user\n")
-        helpmessage += ("**-osu set \*osu username\*** - Removes the tie of any osu! username to your discord user\n")
-        helpmessage += ("**-osu user \*osu username\*** - Shows stats for the specified user (user is optional if you tied your osu! username to your discord user)\n")
+        helpmessage += ("**-osu user \*osu username\*** - Shows stats for the specified user\n")
     helpmessage += ("Command List with examples and command aliases at <https://github.com/SebastianGi/DesuBot#commands>")
     await bot.say(helpmessage)
 
