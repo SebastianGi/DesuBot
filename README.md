@@ -47,13 +47,12 @@ To start the bot, just run desubot.py.
     - *aliases: -cutegirl, -cutegirls, -moe*
 * **-fortune** - Will give you your fortune in the style of an [omikuji](https://en.wikipedia.org/wiki/O-mikuji)
     - *alias: -omikuji*
+* **-picoftheday** - Shows a special image every day
+    - *alias: -potd*
 * **-osu** - Get data from the [osu! API](https://github.com/ppy/osu-api/wiki)
     - **-osu set** *"-osu set Cookiezi" will tie the osu! user Cookiezi to your discord user*
     - **-osu unset** *Will untie the osu! user tied to your discord user*
-    - **-osu user** *"-osu user Cookiezi" displays information about osu! user Cookiezi*
-    - **-osu map** *"-osu map 459149" displays information about the specified beatmap *
-    - **-osu alert** *"-osu alert" soon™*
-    - *aliases: -cutegirl, -cutegirls, -moe*
+    - **-osu user** *"-osu user Cookiezi" displays information about osu! user Cookiezi. If you don't add a username the osu! username tied to your discord user will be used*
 
 ## Authors
 
