@@ -50,6 +50,11 @@ pip-delete-this-directory.txt
 .webassets-cache
 .vscode
 config.json
+<<<<<<< HEAD
 resources
 userdb.json
 dokufuermich
+=======
+dokufuermich
+userdb.json
+>>>>>>> d3c990ba8b9994401a5ddaf521d59ac788dc41b4

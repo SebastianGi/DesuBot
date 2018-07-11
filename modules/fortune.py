@@ -114,7 +114,7 @@ class fortune():
                 await self.bot.add_reaction(fortunemessage, i)
             
             # DM or remove fortune
-            tempchoice = await self.bot.wait_for_reaction(endchoice, message=fortunemessage, user=userboy, timeout=45)
+            tempchoice = await self.bot.wait_for_reaction(endchoice, message=fortunemessage, user=userboy, timeout=90)
             await self.bot.clear_reactions(fortunemessage)
             if tempchoice.reaction.emoji == "🌳":
                 embed.clear_fields()
