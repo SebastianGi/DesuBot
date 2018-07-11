@@ -77,6 +77,8 @@ async def help():
         helpmessage += ("**-cgm** - Posts a random picture via the cuteGirls API\n")
     if "modules.fortune" in userconfig['startup_extensions']:
         helpmessage += ("**-fortune** - Will give you your fortune in the style of an omikuji\n")
+    if "modules.picoftheday" in userconfig['startup_extensions']:
+        helpmessage += ("**-picoftheday** - Shows a special image each day\n")
     helpmessage += ("Command List with examples and command aliases at <https://github.com/SebastianGi/DesuBot#commands>")
     await bot.say(helpmessage)
 
@@ -89,4 +91,4 @@ if __name__ == "__main__":
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
-    bot.run(userconfig['token'])
+    bot.run(userconfig['token'], reconnect=True)
