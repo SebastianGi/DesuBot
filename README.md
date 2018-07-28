@@ -12,7 +12,7 @@ To run the -osu command you also need an [an osu!-API key](https://github.com/pp
 
 Packages that need to be installed in Python 3.6:
 
-* discord.py - *I'm using version v0.16.12*
+* [discord.py](https://github.com/Rapptz/discord.py) - *I'm using version v0.16.12*
 * urllib3
 * TinyDB
 * (**optional**) ujson - *will speed up TinyDB if installed*
