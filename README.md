@@ -10,7 +10,7 @@ To run the bot you need to create a new app on the [Discord developer page](http
 
 To run the -osu command you also need an [an osu!-API key](https://github.com/ppy/osu-api/wiki) which needs to be added in the `config.json` file.
 
-Packages that need to be installed in Python:
+Packages that need to be installed in Python 3.6:
 
 * discord.py - *I'm using version v0.16.12*
 * urllib3
